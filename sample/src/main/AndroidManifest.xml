@@ -34,7 +34,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        android:theme="@android:style/Theme.Material.NoActionBar">
 
         <profileable android:shell="true"
             tools:targetApi="q" />
@@ -42,31 +42,12 @@
         <activity
             android:name="com.google.accompanist.sample.MainActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Material.Light"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".navigation.animation.AnimatedNavHostSample"
-            android:label="@string/navigation_title_animated"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.google.accompanist.sample.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".navigation.material.BottomSheetNavSample"
-            android:label="@string/navigation_title_bottom_sheet"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.google.accompanist.sample.SAMPLE_CODE" />
             </intent-filter>
         </activity>
 
@@ -93,39 +74,6 @@
         <activity
             android:name=".permissions.RequestLocationPermissionsSample"
             android:label="@string/permissions_title_location"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.google.accompanist.sample.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".systemuicontroller.SystemBarsColorSample"
-            android:label="@string/system_ui_controller_title_color"
-            android:exported="true"
-            android:theme="@style/SystemBarsColorSampleTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.google.accompanist.sample.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".systemuicontroller.DialogSystemBarsColorSample"
-            android:label="@string/system_ui_controller_title_color_dialog"
-            android:exported="true"
-            android:theme="@style/DialogSystemUiControllerTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.google.accompanist.sample.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
-
-
-        <activity
-            android:name=".systemuicontroller.SystemBarsVisibilitySample"
-            android:label="@string/system_ui_controller_title_visibility"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -186,16 +134,6 @@
         <activity
             android:name=".adaptive.DraggableFoldAwareColumnSample"
             android:label="@string/adaptive_fold_aware_column_draggable"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.google.accompanist.sample.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
-        
-        <activity
-            android:name=".testharness.TestHarnessSample"
-            android:label="@string/testharness"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

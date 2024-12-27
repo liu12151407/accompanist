@@ -16,17 +16,18 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id(libs.plugins.android.application.get().pluginId)
-    id(libs.plugins.android.kotlin.get().pluginId)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.kotlin)
+    alias(libs.plugins.compose.plugin)
 }
 
 android {
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.google.accompanist.sample"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 35
 
         versionCode = 1
         versionName = "1.0"
@@ -35,16 +36,14 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+
+        isCoreLibraryDesugaringEnabled = true
     }
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
 
     buildTypes {
@@ -53,27 +52,20 @@ android {
         }
     }
 
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
     namespace = "com.google.accompanist.sample"
 }
 
 dependencies {
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
     implementation(project(":adaptive"))
     implementation(project(":drawablepainter"))
-    implementation(project(":navigation-animation"))
-    implementation(project(":navigation-material"))
     implementation(project(":permissions"))
-    implementation(project(":systemuicontroller"))
-    implementation(project(":testharness")) // Don't use in production! Use the configurations below
-    testImplementation(project(":testharness"))
-    androidTestImplementation(project(":testharness"))
 
-    implementation(libs.androidx.appcompat)
-    implementation(libs.mdc)
-
-    implementation(libs.coil.compose)
-    implementation(libs.coil.gif)
-
-    implementation(libs.compose.material.material)
     implementation(libs.compose.material.iconsext)
     implementation(libs.compose.material3.material3)
     implementation(libs.compose.foundation.layout)
@@ -81,11 +73,8 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.ui.util)
 
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.activity.compose)
-
     implementation(libs.androidx.core)
-    implementation(libs.androidx.fragment)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime)
 
     implementation(libs.kotlin.stdlib)
